@@ -94,12 +94,12 @@ export default function BlogList() {
         </div>
       )}
 
-      {/* <p className={`text-xs uppercase tracking-wide ${subtext}`} style={mono}>
-        Blog
-      </p> */}
-      <h1 className="mt-2 text-3xl font-semibold" style={serif}>
+      <h1 className="mt-2 text-3xl font-semibold mb-1" style={serif}>
         Blogs
       </h1>
+      <p className={`text-xs uppercase tracking-wide ${subtext}`} style={mono}>
+        Logging my learnings for my present and future self
+      </p>
 
       {categories.length > 0 && (
         <div className="mt-5 flex flex-wrap gap-2">
@@ -140,19 +140,23 @@ export default function BlogList() {
                 {formatDate(post.date)}
                 <span className="lg:hidden"> · {post.minutes} min</span>
               </p>
-              <p className={`hidden lg:block text-[10px] ${subtext} opacity-70`} style={openSans}>
+              {/* <p className={`hidden lg:block text-[10px] ${subtext} opacity-70`} style={openSans}>
                 {post.minutes} min read
-              </p>
+              </p> */}
             </div>
             <h2 className="mt-1 lg:mt-0 text-xl font-semibold" style={serif}>
               {post.title}
+              <sup
+                className={`relative -top-2.5 ml-2 text-[12px] font-normal uppercase tracking-wide whitespace-nowrap ${accentText}`}
+                style={mono}
+              >
+                {post.category}
+              </sup>
             </h2>
             <p className={`mt-1 text-sm leading-relaxed line-clamp-2 ${subtext}`} style={serif}>
               {post.summary}
             </p>
-            <p className={`mt-1.5 text-[10px] uppercase tracking-wide ${accentText}`} style={mono}>
-              {post.category}
-            </p>
+
           </Link>
         ))}
       </div>
