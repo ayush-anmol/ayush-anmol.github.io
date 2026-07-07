@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* Coin-flip portrait: 3D flip between watercolor and photo */
+.coin-flip {
+  perspective: 800px;
+}
+.coin-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.45, 0.05, 0.35, 1);
+}
+.coin-flip-inner.is-flipped {
+  transform: rotateY(180deg);
+}
+.coin-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.coin-face-back {
+  transform: rotateY(180deg);
+}
+
+/* Markdown body styles for blog posts (colors follow the theme via CSS vars
+   set on the .markdown wrapper) */
+.markdown {
+  font-size: 1.125rem; /* 18px reading size */
+  line-height: 1.8;
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  font-weight: 600;
+  margin: 2em 0 0.6em;
+  line-height: 1.3;
+}
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4 {
+  scroll-margin-top: 6rem; /* keep anchored headings clear of the fixed nav */
+}
+.markdown h1 { font-size: 1.5em; }
+.markdown h2 { font-size: 1.3em; }
+.markdown h3 { font-size: 1.15em; }
+.markdown p { margin: 1em 0; }
+.markdown ul,
+.markdown ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+.markdown ul { list-style: disc; }
+.markdown ol { list-style: decimal; }
+.markdown li { margin: 0.35em 0; }
+.markdown a {
+  color: var(--md-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.markdown code {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85em;
+  background: var(--md-code-bg);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+}
+.markdown pre {
+  background: var(--md-code-bg);
+  padding: 1em;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.25em 0;
+}
+.markdown pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Syntax highlighting — highlight.js token classes emitted by rehype-highlight;
+   colors come from the --hl-* vars set per theme on the .markdown wrapper */
+.markdown .hljs-comment,
+.markdown .hljs-quote {
+  color: var(--hl-comment);
+  font-style: italic;
+}
+.markdown .hljs-keyword,
+.markdown .hljs-selector-tag,
+.markdown .hljs-literal,
+.markdown .hljs-built_in,
+.markdown .hljs-doctag {
+  color: var(--hl-keyword);
+}
+.markdown .hljs-string,
+.markdown .hljs-regexp,
+.markdown .hljs-addition,
+.markdown .hljs-meta .hljs-string {
+  color: var(--hl-string);
+}
+.markdown .hljs-number,
+.markdown .hljs-symbol,
+.markdown .hljs-bullet,
+.markdown .hljs-deletion {
+  color: var(--hl-number);
+}
+.markdown .hljs-title,
+.markdown .hljs-title.function_,
+.markdown .hljs-title.class_,
+.markdown .hljs-section,
+.markdown .hljs-name {
+  color: var(--hl-func);
+}
+.markdown .hljs-attr,
+.markdown .hljs-attribute,
+.markdown .hljs-variable,
+.markdown .hljs-template-variable,
+.markdown .hljs-type,
+.markdown .hljs-params,
+.markdown .hljs-meta {
+  color: var(--hl-attr);
+}
+.markdown .hljs-emphasis { font-style: italic; }
+.markdown .hljs-strong { font-weight: 600; }
+.markdown blockquote {
+  border-left: 3px solid var(--md-border);
+  padding-left: 1em;
+  margin: 1.25em 0;
+  font-style: italic;
+  opacity: 0.85;
+}
+.markdown hr {
+  border: 0;
+  border-top: 1px solid var(--md-border);
+  margin: 2em 0;
+}
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25em 0;
+  font-size: 0.9em;
+}
+.markdown th,
+.markdown td {
+  border: 1px solid var(--md-border);
+  padding: 0.5em 0.75em;
+  text-align: left;
+}
+.markdown img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 1.25em 0;
+}
+/* Diagrams are drawn on the cream light-theme background; soften them in
+   dark mode so they don't glow against the dark page */
+.markdown-dark img {
+  filter: brightness(0.85);
+  border: 1px solid var(--md-border);
+}

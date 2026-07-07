@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 310" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="310" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">A function is a contract: name, inputs, output</text>
+
+  <!-- row 1: returning function -->
+  <text x="150" y="124" font-size="14" text-anchor="middle" fill="#1C1917">13</text>
+  <text x="150" y="144" font-size="10" text-anchor="middle" fill="#78716C">input</text>
+  <line x1="185" y1="118" x2="272" y2="118" stroke="#57534E" stroke-width="1.5" marker-end="url(#arrFc)"/>
+
+  <rect x="280" y="90" width="210" height="56" rx="8" fill="#D1FAE5" stroke="#047857"/>
+  <text x="385" y="114" font-size="14" font-weight="700" text-anchor="middle" fill="#065F46">is_prime(n) → bool</text>
+  <text x="385" y="134" font-size="10" text-anchor="middle" fill="#047857">body private to the caller</text>
+
+  <line x1="494" y1="118" x2="556" y2="118" stroke="#57534E" stroke-width="1.5" marker-end="url(#arrFc)"/>
+  <text x="600" y="123" font-size="14" font-weight="700" text-anchor="middle" fill="#1D4ED8">true</text>
+  <text x="600" y="143" font-size="10" text-anchor="middle" fill="#78716C">returned value</text>
+
+  <!-- row 2: printing procedure -->
+  <text x="150" y="224" font-size="14" text-anchor="middle" fill="#1C1917">12</text>
+  <text x="150" y="244" font-size="10" text-anchor="middle" fill="#78716C">input</text>
+  <line x1="185" y1="218" x2="272" y2="218" stroke="#57534E" stroke-width="1.5" marker-end="url(#arrFc)"/>
+
+  <rect x="280" y="190" width="210" height="56" rx="8" fill="#FEF3C7" stroke="#B45309"/>
+  <text x="385" y="214" font-size="14" font-weight="700" text-anchor="middle" fill="#92400E">print_factors(n)</text>
+  <text x="385" y="234" font-size="10" text-anchor="middle" fill="#B45309">returns nothing</text>
+
+  <line x1="494" y1="218" x2="556" y2="218" stroke="#57534E" stroke-width="1.5" marker-end="url(#arrFc)"/>
+  <rect x="560" y="192" width="190" height="52" rx="6" fill="#FFFFFF" stroke="#D6D3D1"/>
+  <text x="655" y="214" font-size="12" text-anchor="middle" fill="#1C1917">1 2 3 4 6 12</text>
+  <text x="655" y="234" font-size="10" text-anchor="middle" fill="#78716C">printed to screen</text>
+
+  <text x="400" y="288" font-size="12" text-anchor="middle" fill="#57534E">return → the caller can compose with it;  print → the result is consumed on the spot</text>
+
+  <defs>
+    <marker id="arrFc" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#57534E"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="360" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">Two ways to make a machine "smart"</text>
+
+  <!-- left panel: rules -->
+  <rect x="40" y="66" width="350" height="248" rx="10" fill="#fff" stroke="#57534E"/>
+  <text x="215" y="92" font-size="13" text-anchor="middle" fill="#1C1917" font-weight="700">Attempt #1 — write the rules</text>
+
+  <g font-size="11" fill="#44403C">
+    <text x="62" y="126">if contains "free money" → spam</text>
+    <text x="62" y="146">if temp &gt; 100°F → fever</text>
+    <text x="62" y="166">if ... (thousands more rules)</text>
+  </g>
+
+  <g font-size="11" fill="#B91C1C">
+    <text x="62" y="206" font-weight="700">breaks on:</text>
+    <text x="62" y="226">faces, sarcasm, idioms —</text>
+    <text x="62" y="244">anything humans do intuitively</text>
+  </g>
+
+  <text x="215" y="292" font-size="11" text-anchor="middle" fill="#78716C">explicit knowledge only</text>
+
+  <!-- right panel: learning -->
+  <rect x="410" y="66" width="350" height="248" rx="10" fill="#ECFDF5" stroke="#047857" stroke-width="1.5"/>
+  <text x="585" y="92" font-size="13" text-anchor="middle" fill="#065F46" font-weight="700">Attempt #2 — learn from examples</text>
+
+  <g font-size="12" text-anchor="middle">
+    <rect x="475" y="108" width="220" height="34" rx="8" fill="#fff" stroke="#57534E"/>
+    <text x="585" y="130" fill="#1C1917">show many examples</text>
+
+    <rect x="475" y="168" width="220" height="34" rx="8" fill="#fff" stroke="#57534E"/>
+    <text x="585" y="190" fill="#1C1917">machine guesses</text>
+
+    <rect x="475" y="228" width="220" height="34" rx="8" fill="#D1FAE5" stroke="#047857"/>
+    <text x="585" y="250" fill="#065F46">feedback → adjust</text>
+  </g>
+
+  <g stroke="#57534E" stroke-width="1.5" marker-end="url(#arrR)">
+    <line x1="585" y1="144" x2="585" y2="164"/>
+    <line x1="585" y1="204" x2="585" y2="224"/>
+  </g>
+  <!-- loop back up, around the right of the boxes -->
+  <path d="M 697 245 C 735 225, 735 145, 699 125" fill="none" stroke="#047857" stroke-width="1.5" marker-end="url(#arrRg)"/>
+
+  <text x="585" y="292" font-size="11" text-anchor="middle" fill="#78716C">repeat millions of times</text>
+
+  <!-- captions -->
+  <text x="215" y="340" font-size="11" text-anchor="middle" fill="#78716C">expert systems — brittle</text>
+  <text x="585" y="340" font-size="11" text-anchor="middle" fill="#78716C">machine learning — scales with data</text>
+
+  <defs>
+    <marker id="arrR" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#57534E"/>
+    </marker>
+    <marker id="arrRg" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#047857"/>
+    </marker>
+  </defs>
+</svg>

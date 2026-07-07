@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="300" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">How ChatGPT writes — one token at a time</text>
+
+  <!-- context box -->
+  <rect x="60" y="115" width="230" height="64" rx="8" fill="#fff" stroke="#57534E"/>
+  <text x="175" y="138" font-size="11" text-anchor="middle" fill="#78716C">context so far</text>
+  <text x="175" y="161" font-size="13" text-anchor="middle" fill="#1C1917">"The quick brown _"</text>
+
+  <!-- LLM box -->
+  <rect x="340" y="105" width="170" height="84" rx="10" fill="#047857"/>
+  <text x="425" y="141" font-size="14" text-anchor="middle" fill="#ECFDF5" font-weight="700">LLM</text>
+  <text x="425" y="163" font-size="10" text-anchor="middle" fill="#A7F3D0">(next-token predictor)</text>
+
+  <!-- output box -->
+  <rect x="560" y="115" width="150" height="64" rx="8" fill="#D1FAE5" stroke="#047857"/>
+  <text x="635" y="138" font-size="11" text-anchor="middle" fill="#78716C">prediction</text>
+  <text x="635" y="161" font-size="13" text-anchor="middle" fill="#065F46" font-weight="700">"fox"</text>
+
+  <!-- arrows -->
+  <g stroke="#57534E" stroke-width="1.5" marker-end="url(#arrG)">
+    <line x1="292" y1="147" x2="336" y2="147"/>
+    <line x1="512" y1="147" x2="556" y2="147"/>
+  </g>
+
+  <!-- loop back -->
+  <path d="M 635 181 V 235 H 175 V 185" fill="none" stroke="#047857" stroke-width="1.5" marker-end="url(#arrGg)"/>
+  <text x="405" y="258" font-size="12" text-anchor="middle" fill="#047857">append token, predict again</text>
+
+  <text x="400" y="286" font-size="11" text-anchor="middle" fill="#78716C">no plan, no database lookup — just the most plausible next token, repeated</text>
+
+  <defs>
+    <marker id="arrG" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#57534E"/>
+    </marker>
+    <marker id="arrGg" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#047857"/>
+    </marker>
+  </defs>
+</svg>

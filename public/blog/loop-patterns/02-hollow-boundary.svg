@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="340" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">Hollow shapes: print the border, space the interior</text>
+
+  <!-- interior cells -->
+  <g fill="#FFFFFF" stroke="#D6D3D1" stroke-dasharray="3 3">
+    <rect x="116" y="116" width="36" height="36"/>
+    <rect x="152" y="116" width="36" height="36"/>
+    <rect x="188" y="116" width="36" height="36"/>
+    <rect x="116" y="152" width="36" height="36"/>
+    <rect x="152" y="152" width="36" height="36"/>
+    <rect x="188" y="152" width="36" height="36"/>
+    <rect x="116" y="188" width="36" height="36"/>
+    <rect x="152" y="188" width="36" height="36"/>
+    <rect x="188" y="188" width="36" height="36"/>
+  </g>
+
+  <!-- border cells -->
+  <g fill="#D1FAE5" stroke="#047857">
+    <rect x="80" y="80" width="36" height="36"/>
+    <rect x="116" y="80" width="36" height="36"/>
+    <rect x="152" y="80" width="36" height="36"/>
+    <rect x="188" y="80" width="36" height="36"/>
+    <rect x="224" y="80" width="36" height="36"/>
+    <rect x="80" y="116" width="36" height="36"/>
+    <rect x="224" y="116" width="36" height="36"/>
+    <rect x="80" y="152" width="36" height="36"/>
+    <rect x="224" y="152" width="36" height="36"/>
+    <rect x="80" y="188" width="36" height="36"/>
+    <rect x="224" y="188" width="36" height="36"/>
+    <rect x="80" y="224" width="36" height="36"/>
+    <rect x="116" y="224" width="36" height="36"/>
+    <rect x="152" y="224" width="36" height="36"/>
+    <rect x="188" y="224" width="36" height="36"/>
+    <rect x="224" y="224" width="36" height="36"/>
+  </g>
+  <!-- stars on border cells -->
+  <g font-size="16" fill="#065F46" text-anchor="middle">
+    <text x="98" y="109">*</text><text x="134" y="109">*</text><text x="170" y="109">*</text><text x="206" y="109">*</text><text x="242" y="109">*</text>
+    <text x="98" y="145">*</text><text x="242" y="145">*</text>
+    <text x="98" y="181">*</text><text x="242" y="181">*</text>
+    <text x="98" y="217">*</text><text x="242" y="217">*</text>
+    <text x="98" y="253">*</text><text x="134" y="253">*</text><text x="170" y="253">*</text><text x="206" y="253">*</text><text x="242" y="253">*</text>
+  </g>
+
+  <text x="170" y="290" font-size="11" text-anchor="middle" fill="#78716C">hollow square, n = 5</text>
+
+  <!-- border test box -->
+  <rect x="340" y="96" width="400" height="118" rx="8" fill="#FFFFFF" stroke="#E7E5E4"/>
+  <g font-size="13" fill="#1C1917">
+    <text x="360" y="126">if i = 1 or i = n or j = 1 or j = n:</text>
+    <text x="360" y="150">    print <tspan fill="#047857" font-weight="700">"*"</tspan></text>
+    <text x="360" y="174">else:</text>
+    <text x="360" y="198">    print <tspan fill="#B45309" font-weight="700">" "</tspan></text>
+  </g>
+
+  <text x="340" y="248" font-size="12" fill="#57534E">visit every cell; a border test decides what to print.</text>
+  <text x="340" y="268" font-size="12" fill="#57534E">same idea, new condition = any hollow shape</text>
+  <text x="340" y="288" font-size="12" fill="#57534E">(triangle borders: j = 1, j = i, and the base row)</text>
+</svg>

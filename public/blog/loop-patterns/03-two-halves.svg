@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="340" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">Composite shapes are two mirrored halves — watch the middle row</text>
+
+  <!-- ============ left panel: diamond ============ -->
+  <text x="80" y="84" font-size="13" font-weight="700" fill="#1C1917">diamond = pyramid + inverted pyramid</text>
+
+  <!-- top half (emerald) -->
+  <g font-size="18" fill="#047857" text-anchor="middle">
+    <text x="180" y="110">*</text>
+    <text x="166" y="136">*</text><text x="194" y="136">*</text>
+    <text x="152" y="162">*</text><text x="180" y="162">*</text><text x="208" y="162">*</text>
+  </g>
+  <!-- bottom half (blue) -->
+  <g font-size="18" fill="#1D4ED8" text-anchor="middle">
+    <text x="166" y="188">*</text><text x="194" y="188">*</text>
+    <text x="180" y="214">*</text>
+  </g>
+  <!-- middle-row marker -->
+  <line x1="130" y1="171" x2="230" y2="171" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="246" y="175" font-size="11" fill="#B45309">middle row — printed once</text>
+
+  <text x="80" y="254" font-size="12" fill="#047857">top half: i = 1 … n</text>
+  <text x="80" y="274" font-size="12" fill="#1D4ED8">bottom half: i = n−1 … 1</text>
+  <text x="80" y="298" font-size="12" fill="#B45309">start at n−1, or the middle row prints twice</text>
+
+  <!-- ============ right panel: butterfly ============ -->
+  <text x="440" y="84" font-size="13" font-weight="700" fill="#1C1917">butterfly = wing · gap · wing, mirrored</text>
+
+  <!-- top half (emerald) -->
+  <g font-size="18" fill="#047857" text-anchor="middle">
+    <text x="460" y="110">*</text><text x="540" y="110">*</text>
+    <text x="460" y="136">*</text><text x="476" y="136">*</text><text x="524" y="136">*</text><text x="540" y="136">*</text>
+    <text x="460" y="162">*</text><text x="476" y="162">*</text><text x="492" y="162">*</text><text x="508" y="162">*</text><text x="524" y="162">*</text><text x="540" y="162">*</text>
+  </g>
+  <!-- bottom half (blue) -->
+  <g font-size="18" fill="#1D4ED8" text-anchor="middle">
+    <text x="460" y="188">*</text><text x="476" y="188">*</text><text x="524" y="188">*</text><text x="540" y="188">*</text>
+    <text x="460" y="214">*</text><text x="540" y="214">*</text>
+  </g>
+
+  <text x="440" y="254" font-size="12" fill="#1C1917" font-weight="700">row = stars + gap + stars</text>
+  <text x="440" y="274" font-size="12" fill="#B45309">gap = 2 · (i − 1) spaces</text>
+  <text x="440" y="298" font-size="12" fill="#57534E">grow one side, mirror the other below</text>
+</svg>

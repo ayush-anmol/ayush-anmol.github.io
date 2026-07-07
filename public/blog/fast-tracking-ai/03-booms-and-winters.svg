@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="300" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">Seventy years of booms and winters</text>
+
+  <!-- axis -->
+  <line x1="60" y1="170" x2="748" y2="170" stroke="#57534E" stroke-width="1.5" marker-end="url(#arrT)"/>
+
+  <!-- event dots -->
+  <g>
+    <circle cx="100" cy="170" r="5" fill="#047857"/>
+    <circle cx="200" cy="170" r="5" fill="#1D4ED8"/>
+    <circle cx="300" cy="170" r="5" fill="#047857"/>
+    <circle cx="400" cy="170" r="5" fill="#1D4ED8"/>
+    <circle cx="520" cy="170" r="5" fill="#047857"/>
+    <circle cx="610" cy="170" r="5" fill="#57534E"/>
+    <circle cx="700" cy="170" r="5" fill="#047857"/>
+  </g>
+
+  <!-- connectors -->
+  <g stroke="#D6D3D1">
+    <line x1="100" y1="146" x2="100" y2="162"/>
+    <line x1="300" y1="146" x2="300" y2="162"/>
+    <line x1="520" y1="146" x2="520" y2="162"/>
+    <line x1="700" y1="146" x2="700" y2="162"/>
+    <line x1="200" y1="178" x2="200" y2="194"/>
+    <line x1="400" y1="178" x2="400" y2="194"/>
+    <line x1="610" y1="178" x2="610" y2="194"/>
+  </g>
+
+  <!-- above: booms -->
+  <g text-anchor="middle">
+    <text x="100" y="122" font-size="12" font-weight="700" fill="#047857">1956</text>
+    <text x="100" y="138" font-size="11" fill="#57534E">Dartmouth — AI is born</text>
+    <text x="300" y="122" font-size="12" font-weight="700" fill="#047857">1980s</text>
+    <text x="300" y="138" font-size="11" fill="#57534E">expert systems boom</text>
+    <text x="520" y="122" font-size="12" font-weight="700" fill="#047857">2012</text>
+    <text x="520" y="138" font-size="11" fill="#57534E">deep learning era</text>
+    <text x="700" y="122" font-size="12" font-weight="700" fill="#047857">2022+</text>
+    <text x="700" y="138" font-size="11" fill="#57534E">ChatGPT &amp; LLMs</text>
+  </g>
+
+  <!-- below: winters -->
+  <g text-anchor="middle">
+    <text x="200" y="212" font-size="12" font-weight="700" fill="#1D4ED8">1970s</text>
+    <text x="200" y="228" font-size="11" fill="#57534E">first AI winter</text>
+    <text x="400" y="212" font-size="12" font-weight="700" fill="#1D4ED8">late 80s–90s</text>
+    <text x="400" y="228" font-size="11" fill="#57534E">second winter</text>
+    <text x="610" y="212" font-size="12" font-weight="700" fill="#57534E">2017</text>
+    <text x="610" y="228" font-size="11" fill="#57534E">Transformer paper</text>
+  </g>
+
+  <text x="400" y="272" font-size="11" text-anchor="middle" fill="#78716C">each boom overpromised; each winter cut funding — until data, GPUs and deep nets converged</text>
+
+  <defs>
+    <marker id="arrT" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#57534E"/>
+    </marker>
+  </defs>
+</svg>

@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="440" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">Words as points in space</text>
+
+  <!-- cluster hulls -->
+  <ellipse cx="250" cy="150" rx="100" ry="40" fill="#D1FAE5" opacity="0.4"/>
+  <ellipse cx="250" cy="300" rx="100" ry="40" fill="#DBEAFE" opacity="0.4"/>
+  <ellipse cx="605" cy="330" rx="100" ry="38" fill="#FEF3C7" opacity="0.5"/>
+
+  <!-- axes -->
+  <line x1="70" y1="390" x2="740" y2="390" stroke="#A8A29E" stroke-width="1.5" marker-end="url(#arrE)"/>
+  <line x1="70" y1="390" x2="70" y2="80" stroke="#A8A29E" stroke-width="1.5" marker-end="url(#arrE)"/>
+  <text x="690" y="380" font-size="11" fill="#78716C" text-anchor="middle">dimension A</text>
+  <text x="52" y="150" font-size="11" fill="#78716C" text-anchor="middle" transform="rotate(-90 52 150)">dimension B</text>
+
+  <!-- analogy arrows: + royalty -->
+  <g stroke="#047857" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arrEg)">
+    <line x1="200" y1="288" x2="200" y2="164"/>
+    <line x1="300" y1="288" x2="300" y2="164"/>
+  </g>
+  <text x="212" y="228" font-size="11" fill="#047857">+ royalty</text>
+
+  <!-- words -->
+  <g font-size="12" text-anchor="middle" fill="#1C1917">
+    <circle cx="200" cy="150" r="4" fill="#047857"/>
+    <text x="200" y="136">king</text>
+    <circle cx="300" cy="150" r="4" fill="#047857"/>
+    <text x="300" y="136">queen</text>
+
+    <circle cx="200" cy="300" r="4" fill="#1D4ED8"/>
+    <text x="200" y="322">man</text>
+    <circle cx="300" cy="300" r="4" fill="#1D4ED8"/>
+    <text x="300" y="322">woman</text>
+
+    <circle cx="560" cy="330" r="4" fill="#B45309"/>
+    <text x="560" y="352">apple</text>
+    <circle cx="650" cy="330" r="4" fill="#B45309"/>
+    <text x="650" y="352">orange</text>
+
+    <circle cx="640" cy="120" r="4" fill="#57534E"/>
+    <text x="640" y="106">Apple (the company)</text>
+  </g>
+
+  <!-- word math note -->
+  <text x="480" y="225" font-size="12" font-style="italic" fill="#57534E" text-anchor="middle">king − man + woman ≈ queen</text>
+
+  <!-- caption -->
+  <g font-size="11" fill="#78716C" text-anchor="middle">
+    <text x="400" y="414">similar meanings cluster, and directions in the space mean things —</text>
+    <text x="400" y="430">but "apple" gets exactly one point, so context must come from elsewhere</text>
+  </g>
+
+  <defs>
+    <marker id="arrE" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#A8A29E"/>
+    </marker>
+    <marker id="arrEg" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#047857"/>
+    </marker>
+  </defs>
+</svg>
