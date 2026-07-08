@@ -1,14 +1,14 @@
 ---
-title: "Loop Patterns: One Mental Model for Every Star Shape"
+title: "Loops and Patterns"
 date: "2026-07-01"
-summary: "Nineteen star patterns, six ideas — turn any shape into two loops and a formula, in pseudocode."
+summary: "Let's turn any shape into two loops and a formula - star patterns"
 tags: ["dsa", "loops", "fundamentals", "patterns"]
 category: "dsa"
 ---
 
-Pattern printing is the first wall most people hit after learning loops. The problems look arbitrary — a hollow square here, a butterfly there — and it's tempting to memorize each one. Don't. Every pattern problem, all of them, is the same problem:
+Pattern printing is the first wall most people hit after learning loops. The problems look arbitrary at first — a hollow square here, a butterfly there — and it is tempting to memorize each one. But please don't. Every pattern problem, all of them, is the same problem:
 
-> **You are given a picture. Turn it into a formula in `i` (the row) and `j` (the column).**
+> **We are given a picture. We turn it into a formula in `i` (the row) and `j` (the column) of a grid.**
 
 The outer loop picks a row. The inner loop(s) walk across that row printing *segments* — some spaces, some stars — and each segment's length is a function of `i` and `n`. Find the functions and the code writes itself. All pseudocode below translates line-for-line to C++, Python, or anything else.
 
@@ -16,12 +16,20 @@ The outer loop picks a row. The inner loop(s) walk across that row printing *seg
 
 ## 1. Solid blocks — the counts are constant
 
-The warm-up shapes (a column of `**`, an `n × m` rectangle, an `n × n` square) all have one thing in common: what you print per row doesn't depend on the row.
+```
+    **                * * * * *             * * * *
+    **                * * * * *             * * * *
+    **                * * * * *             * * * *
+    **                * * * * *             * * * *
+Column of **       Rectangle m x n       Square n x n    
+```
+
+These warm-up shapes (a column of `**`, an `n × m` rectangle, an `n × n` square) all have one thing in common: what we print in each row doesn't depend on that row.
 
 ```
 read n, m
 repeat n times:
-    print "*" m times
+    print "*" m times, add spaces if required
     newline
 ```
 
@@ -29,24 +37,32 @@ That's it. `m = 2` gives the double-star column, `m = n` gives the square. One t
 
 ## 2. Triangles — the count depends on the row
 
+```
+*
+* *
+* * *
+* * * *
+* * * * *
+```
 The moment the shape slants, the inner count becomes a function of `i`:
-
 ```
 read n
 for i = 1 … n:
-    print "*" i times      ← the formula
+    print "*" i times     ← the formula
     newline
 ```
 
-```
-*
-**
-***
-****
-*****
-```
 
-Every triangle variant is a one-line tweak to that formula or to *what* gets printed:
+Every triangle variant is a one-line tweak to this formula or to *what* gets printed:
+
+```
+   * * * * *            1                   1
+   * * * *              2 2                 0 1
+   * * *                3 3 3               1 0 1
+   * *                  4 4 4 4             0 1 0 1
+   *                    5 5 5 5 5           1 0 1 0 1
+Inverted Pyramid    Numbered Triangle    Binary Triangle
+```
 
 - **Inverted pyramid** — run the rows the other way: `for i = n … 1`, print `i` stars. (Equivalently: keep `i = 1 … n` and print `n − i + 1` stars.)
 - **Numbered triangle** — same loop, but print the digit `i` instead of `*`. Row 3 reads `333`.
@@ -54,14 +70,14 @@ Every triangle variant is a one-line tweak to that formula or to *what* gets pri
 
 ```
 for i = 1 … n:
-    bit = parity of i        ← check the sample output: does row 1 start with 0 or 1?
+    bit = parity of i     ← check the sample output: does row 1 start with 0 or 1?
     repeat i times:
         print bit
         bit = 1 - bit
     newline
 ```
 
-The only trap in the binary pyramid is the starting bit. Whether row 1 begins with `0` or `1` depends on the exact problem statement, and the parity trick (`i mod 2` or its complement) handles either — but you have to read the sample output to know which one you need.
+The only trap in the binary pyramid is the starting bit. Whether row 1 begins with `0` or `1` depends on the exact problem statement, and the parity trick (`i mod 2` or its complement) handles either, but we have to read the sample output to know which one we need.
 
 ## 3. Hollow shapes — print the border, space the interior
 
@@ -71,7 +87,7 @@ Here's where people start writing four separate loops for the four walls. There'
 
 ```
 for i = 1 … n:
-    for j = 1 … m:
+    for j = 1 … m:     ← for a square m = n
         if i = 1 or i = n or j = 1 or j = m:
             print "*"
         else:
@@ -79,15 +95,8 @@ for i = 1 … n:
     newline
 ```
 
-```
-*****
-*   *
-*   *
-*   *
-*****
-```
 
-The same idea generalizes to any hollow shape — only the border condition changes. For a hollow triangle, the borders are the first star of the row, the *last* star of the row, and the base:
+The same idea generalizes to any hollow shape and only the border condition changes. For a hollow triangle, the borders are the first star of the row, the *last* star of the row, and the base:
 
 ```
 for i = 1 … n:
@@ -98,16 +107,23 @@ for i = 1 … n:
             print " "
     newline
 ```
+```
+* * * * *
+*     *
+*   *
+* *
+*
+```
 
-Memorize the *idea* (border test), not the conditions — you can re-derive the conditions from the picture in seconds.
+Let's memorize the *idea* (border test), not the conditions — we can re-derive the conditions from the picture in seconds.
 
 ## 4. Centered shapes — spaces are content too
 
-A centered triangle is just a left-aligned triangle pushed right by a shrinking wall of spaces. The key realization: **leading spaces are a segment like any other**, with their own formula. For row `i` of `n`, the push is `n − i`:
+A centered triangle is just a left-aligned triangle pushed right by a shrinking wall of spaces. The key realization is **leading spaces are a segment like any other**, with their own formula. For row `i` of `n`, the push is `n − i`:
 
 ```
 for i = 1 … n:
-    print " " (n - i) times      ← the invisible half of the shape
+    print " " (n - i) times     ← the invisible half of the shape
     print "* " i times
     newline
 ```
@@ -120,7 +136,7 @@ for i = 1 … n:
 * * * * *
 ```
 
-One judge-related wrinkle: if stars are separated by spaces (`* `), most judges reject a *trailing* space after the last star. Handle the last star specially — print `"* "` for `j < i` and a bare `"*"` for `j = i`.
+One thing to note that if stars are separated by spaces (`* `), most online judges reject a *trailing* space after the last star. Handle the last star specially by printing `"* "` for `j < i` and a bare `"*"` for `j = i`.
 
 ## 5. Mirrored shapes — two halves, one shared row
 
@@ -157,33 +173,33 @@ with the star count and the gap moving in opposite directions. The crown:
 stars = 1
 for i = n … 1:
     print "*" stars times
-    print " " 2·(i−1) times      ← gap shrinks as the blocks grow
-    print "*" stars times
+    print " " 2·(i−1) times     ← gap shrinks as the blocks grow
+    print "*" stars times       ← add space if required       
     newline
     stars = stars + 1
 ```
 
 ```
-*      *
-**    **
-***  ***
-********
+*             *
+* *         * *
+* * *     * * *
+* * * * * * * *
 ```
 
 - **Butterfly** = crown + its mirror image below (bottom half runs `i = 2 … n` with `stars` counting back down — again skipping the shared middle row).
 - **Inverted diamond** = the same three segments with the direction flipped: `stars` starts at `n` and shrinks while the gap `2i − 1` grows, then mirror.
 
 ```
-*      *
-**    **
-***  ***
-********
-***  ***
-**    **
-*      *
+*             *
+* *         * *
+* * *     * * *
+* * * * * * * *
+* * *     * * *
+* *         * *
+*             *
 ```
 
-Notice the gap formulas are always *linear in `i`* — `2(i−1)`, `2i−1`. If you're staring at a sample output trying to find the gap width, count the spaces in two consecutive rows; the difference per row (here, 2) and one anchor row give you the whole formula.
+Notice the gap formulas are always *linear in `i`* like `2(i−1)`, `2i−1`. If we're staring at a sample output trying to find the gap width, we count the spaces in two consecutive rows; the difference per row and one anchor row give us the whole formula.
 
 ## The cheat sheet
 
@@ -208,12 +224,12 @@ All nineteen problems, one line each:
 
 When a pattern comes out wrong, it's almost always one of these four:
 
-1. **Doubled middle row** — your mirror loop starts at `n` instead of `n − 1`.
-2. **Off-by-one in a formula** — print `i` and `j` themselves instead of stars for one run; the shape of the numbers shows you exactly which formula is wrong.
+1. **Doubled middle row** — our mirror loop starts at `n` instead of `n − 1`.
+2. **Off-by-one in a formula** — print `i` and `j` themselves instead of stars for one run; the shape of the numbers shows us exactly which formula is wrong.
 3. **Trailing spaces** — judges compare output byte-for-byte; special-case the last star in a row.
 4. **Wrong starting parity** — for alternating patterns, check row 1 of the sample output before choosing `i mod 2` vs its complement.
 
-The meta-lesson carries far beyond stars: *decompose the output into segments, express each segment's length as a function of the loop variables, handle boundaries explicitly.* That's the same skill you'll use later for matrix traversals, prefix sums, and sliding windows — patterns are just where it's cheapest to learn it.
+The meta-lesson carries far beyond stars: *decompose the output into segments, express each segment's length as a function of the loop variables, handle boundaries explicitly.* That's the same skill we'll use later for matrix traversals, prefix sums, and sliding windows — patterns are just where it's cheapest to learn it.
 
 ## Try it out
 

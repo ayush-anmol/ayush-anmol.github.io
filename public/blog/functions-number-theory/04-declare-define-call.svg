@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 390" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="390" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">One function, three moments: declare, define, call</text>
+
+  <!-- declaration card (top left) -->
+  <rect x="40" y="70" width="340" height="88" rx="8" fill="#FEF3C7" stroke="#B45309"/>
+  <text x="56" y="94" font-size="10" font-weight="700" fill="#92400E">DECLARATION — the promise</text>
+  <text x="56" y="120" font-size="12.5" fill="#1C1917">function is_prime(n) → boolean</text>
+  <text x="56" y="142" font-size="10" fill="#B45309">name + input + output type — no body yet</text>
+
+  <!-- the name becomes known -->
+  <line x1="210" y1="162" x2="210" y2="182" stroke="#78716C" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrDdc)"/>
+  <text x="222" y="177" font-size="9.5" fill="#78716C">the name is now known to the program</text>
+
+  <!-- caller card (bottom left) -->
+  <rect x="40" y="190" width="340" height="130" rx="8" fill="#DBEAFE" stroke="#1D4ED8"/>
+  <text x="56" y="214" font-size="10" font-weight="700" fill="#1D4ED8">CALL — the moment of use</text>
+  <text x="56" y="240" font-size="12" fill="#1C1917">read n</text>
+  <rect x="75" y="250" width="84" height="17" rx="3" fill="#FFFFFF" stroke="#93C5FD"/>
+  <text x="56" y="263" font-size="12" fill="#1C1917">if is_prime(n):</text>
+  <text x="56" y="286" font-size="12" fill="#1C1917">    print n, " is prime"</text>
+
+  <!-- definition card (right) -->
+  <rect x="470" y="120" width="290" height="200" rx="8" fill="#D1FAE5" stroke="#047857"/>
+  <text x="486" y="144" font-size="10" font-weight="700" fill="#065F46">DEFINITION — the how</text>
+  <text x="486" y="170" font-size="11" fill="#1C1917">function is_prime(n):</text>
+  <text x="486" y="188" font-size="11" fill="#1C1917">    if n = 1: return false</text>
+  <text x="486" y="206" font-size="11" fill="#1C1917">    for i = 2 … while i·i ≤ n:</text>
+  <text x="486" y="224" font-size="11" fill="#1C1917">        if n mod i = 0:</text>
+  <text x="486" y="242" font-size="11" fill="#1C1917">            return false</text>
+  <text x="486" y="260" font-size="11" fill="#1C1917">    return true</text>
+  <text x="486" y="296" font-size="10" fill="#047857">the body — written exactly once</text>
+
+  <!-- call jumps in -->
+  <line x1="384" y1="256" x2="462" y2="256" stroke="#57534E" stroke-width="1.5" marker-end="url(#arrDdc)"/>
+  <text x="423" y="247" font-size="9.5" text-anchor="middle" fill="#1D4ED8">call</text>
+
+  <!-- value comes back -->
+  <line x1="462" y1="292" x2="392" y2="292" stroke="#57534E" stroke-width="1.5" marker-end="url(#arrDdc)"/>
+  <text x="423" y="308" font-size="9.5" text-anchor="middle" fill="#065F46">true / false</text>
+
+  <text x="400" y="360" font-size="11" text-anchor="middle" fill="#57534E">declare once · define once · call as many times as we like</text>
+
+  <defs>
+    <marker id="arrDdc" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#57534E"/>
+    </marker>
+  </defs>
+</svg>
