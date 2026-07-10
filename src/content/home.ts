@@ -77,18 +77,25 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
+  name: "Distributed Task Queue",
+  description:
+    "A Redis-backed distributed task queue built from scratch: priority streams with high→default draining, consumer-group delivery with crash recovery, exponential-backoff retries, dead-letter handling, and delayed/periodic scheduling — fronted by a FastAPI producer and a real-time React dashboard. Sustains 138 req/s at 0% failures under load.",
+  tags: ["Python", "FastAPI", "Redis", "Docker", "React", "TypeScript"],
+  github: "https://github.com/ayush-anmol/Distributed-task-queue",
+  },
+  {
     name: "Semantic Book Recommender",
     description:
-      "A recommender that suggests books by meaning, not keywords — embedding similarity over 6,000+ book entries via LangChain retrieval pipelines, served with a Gradio UI.",
-    tags: ["Python", "Ollama", "LangChain", "Gradio"],
-    github: "https://github.com/ayush-anmol",
+      "A recommender that suggests books by meaning, not keywords but embedding similarity over 6,000+ book descriptions using a LangChain + Qdrant retrieval pipeline, served with a Gradio UI.",
+    tags: ["Python", "LangChain", "Qdrant", "Sentence-Transformers", "Gradio"],
+    github: "https://github.com/ayush-anmol/semantic_book_recommender",
   },
   {
     name: "Medical Chatbot",
     description:
-      "A RAG-based medical Q&A assistant using HuggingFace embeddings with FAISS vector search — 92% retrieval accuracy at ~1.5s latency across 1,000+ test queries.",
-    tags: ["Python", "LangChain", "FAISS", "Streamlit"],
-    github: "https://github.com/ayush-anmol",
+      "A fully-offline RAG medical Q&A assistant: HuggingFace embeddings + ChromaDB vector search over 23K+ chunks from medical texts, answered by a local Ollama LLM with source citations.",
+    tags: ["Python", "LangChain", "ChromaDB", "Ollama", "Chainlit"],
+    github: "https://github.com/ayush-anmol/Medical-chatbot",
   },
   // {
   //   name: "Histopathological Image Classification",
