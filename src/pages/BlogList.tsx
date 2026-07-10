@@ -95,7 +95,7 @@ export default function BlogList() {
       )}
 
       <h1 className="mt-2 text-3xl font-semibold mb-1" style={serif}>
-        Blogs
+        Blogs ({posts.length})
       </h1>
       <p className={`text-xs uppercase tracking-wide ${subtext}`} style={mono}>
         Logging my learnings for my present and future self
