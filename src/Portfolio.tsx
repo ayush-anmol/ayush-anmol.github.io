@@ -286,7 +286,7 @@ export default function Portfolio() {
 
       case "blog":
         print("Opening blog...");
-        navigate("/blog");
+        navigate("/blog", { viewTransition: true });
         break;
 
       case "exit":
@@ -354,6 +354,7 @@ export default function Portfolio() {
             ))}
             <Link
               to="/blog"
+              viewTransition
               className={`text-xs uppercase tracking-wide ${subtext} ${accentHover} transition-colors`}
             >
               blog
@@ -403,6 +404,7 @@ export default function Portfolio() {
               ))}
               <Link
                 to="/blog"
+                viewTransition
                 onClick={() => setMenuOpen(false)}
                 className={`text-xs uppercase tracking-wide ${subtext} ${accentHover} transition-colors`}
               >
@@ -797,7 +799,7 @@ export default function Portfolio() {
             { icon: <User size={17} />, label: "about", onClick: () => scrollTo("about") },
             { icon: <Wrench size={17} />, label: "projects", onClick: () => scrollTo("projects") },
             { icon: <Mail size={17} />, label: "contact", onClick: () => scrollTo("contact") },
-            { icon: <BookOpen size={17} />, label: "blog", onClick: () => navigate("/blog") },
+            { icon: <BookOpen size={17} />, label: "blog", onClick: () => navigate("/blog", { viewTransition: true }) },
           ]}
         />
       )}

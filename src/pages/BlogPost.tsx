@@ -161,7 +161,7 @@ export default function BlogPost() {
     return (
       <BlogLayout backTo="/blog" backLabel="blog">
         <p style={serif}>Post not found.</p>
-        <Link to="/blog" className={`mt-4 inline-block text-sm ${accentText}`} style={mono}>
+        <Link to="/blog" viewTransition className={`mt-4 inline-block text-sm ${accentText}`} style={mono}>
           ← back to blog
         </Link>
       </BlogLayout>
@@ -303,7 +303,7 @@ export default function BlogPost() {
         {(older || newer) && (
           <nav aria-label="Adjacent posts" className={`mt-14 pt-8 border-t ${border} hidden sm:flex justify-between gap-6`}>
             {older ? (
-              <Link to={`/blog/${older.slug}`} className="max-w-[45%]">
+              <Link to={`/blog/${older.slug}`} viewTransition className="max-w-[45%]">
                 <p className={`text-xs uppercase tracking-wide ${subtext}`} style={mono}>
                   ← Previous
                 </p>
@@ -315,7 +315,7 @@ export default function BlogPost() {
               <span />
             )}
             {newer ? (
-              <Link to={`/blog/${newer.slug}`} className="max-w-[45%] text-right">
+              <Link to={`/blog/${newer.slug}`} viewTransition className="max-w-[45%] text-right">
                 <p className={`text-xs uppercase tracking-wide ${subtext}`} style={mono}>
                   Next →
                 </p>
@@ -355,7 +355,7 @@ export default function BlogPost() {
             icon: <ArrowLeft size={17} />,
             label: "older",
             disabled: !older,
-            onClick: () => older && navigate(`/blog/${older.slug}`),
+            onClick: () => older && navigate(`/blog/${older.slug}`, { viewTransition: true }),
           },
           {
             icon: <List size={17} />,
@@ -375,7 +375,7 @@ export default function BlogPost() {
             icon: <ArrowRight size={17} />,
             label: "newer",
             disabled: !newer,
-            onClick: () => newer && navigate(`/blog/${newer.slug}`),
+            onClick: () => newer && navigate(`/blog/${newer.slug}`, { viewTransition: true }),
           },
         ]}
       />

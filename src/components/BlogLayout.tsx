@@ -36,7 +36,7 @@ export default function BlogLayout({ backTo, backLabel = "back", onSearch, child
 
       <header className={`fixed top-0 inset-x-0 z-40 backdrop-blur border-b ${border} ${navBg}`}>
         <div className="max-w-2xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/" className="text-base font-semibold tracking-tight" style={serif}>
+          <Link to="/" viewTransition className="text-base font-semibold tracking-tight" style={serif}>
             Ayush Anmol
           </Link>
 
@@ -59,6 +59,7 @@ export default function BlogLayout({ backTo, backLabel = "back", onSearch, child
             </button>
             <Link
               to={backTo}
+              viewTransition
               className={`flex items-center gap-1.5 text-xs uppercase tracking-wide px-3 py-2 rounded-full border ${border} ${cardHover} ${subtext} transition-colors`}
               style={mono}
             >

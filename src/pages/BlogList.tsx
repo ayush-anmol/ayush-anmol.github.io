@@ -132,6 +132,7 @@ export default function BlogList() {
           <Link
             key={post.slug}
             to={`/blog/${post.slug}`}
+            viewTransition
             className="relative block py-5 first:pt-0 hover:opacity-70 transition-opacity"
           >
             {/* date sits in the left gutter on wide screens, above the title on small ones */}
@@ -175,7 +176,7 @@ export default function BlogList() {
 
       <MobileDock
         items={[
-          { icon: <Home size={17} />, label: "home", onClick: () => navigate("/") },
+          { icon: <Home size={17} />, label: "home", onClick: () => navigate("/", { viewTransition: true }) },
           { icon: <Search size={17} />, label: "search", onClick: () => setSearchOpen(true) },
           {
             icon: <ArrowUp size={17} />,

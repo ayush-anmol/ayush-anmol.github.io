@@ -24,6 +24,79 @@
   transform: rotateY(180deg);
 }
 
+/* Route changes cross-fade via the View Transitions API (react-router
+   links opt in with `viewTransition`). Identical regions between the two
+   pages — the fixed header bar — composite unchanged under the browser's
+   plus-lighter blending, so only content that actually differs appears
+   to fade. Browsers without support keep the instant switch. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 200ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
+/* Site cat (SiteCat.tsx): walk cycle — legs swing in opposite pairs, the
+   body bobs, the tail sways; sitting tail flicks its tip. All of it stops
+   under prefers-reduced-motion (the cat simply sits). */
+.cat-leg-a,
+.cat-leg-b {
+  transform-box: fill-box;
+  transform-origin: 50% 8%;
+  animation: cat-step 0.4s ease-in-out infinite alternate;
+}
+.cat-leg-b {
+  animation-name: cat-step-b;
+}
+@keyframes cat-step {
+  from { transform: rotate(-14deg); }
+  to { transform: rotate(14deg); }
+}
+@keyframes cat-step-b {
+  from { transform: rotate(14deg); }
+  to { transform: rotate(-14deg); }
+}
+.cat-walk-bob {
+  animation: cat-bob 0.4s ease-in-out infinite alternate;
+}
+@keyframes cat-bob {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1.5px); }
+}
+.cat-tail {
+  transform-box: fill-box;
+  transform-origin: 100% 100%;
+  animation: cat-tail-sway 1.6s ease-in-out infinite;
+}
+@keyframes cat-tail-sway {
+  0%, 100% { transform: rotate(-6deg); }
+  50% { transform: rotate(8deg); }
+}
+.cat-tail-sit {
+  transform-box: fill-box;
+  transform-origin: 100% 50%;
+  animation: cat-tail-flick 3s ease-in-out infinite;
+}
+@keyframes cat-tail-flick {
+  0%, 70%, 100% { transform: rotate(0deg); }
+  80% { transform: rotate(-10deg); }
+  90% { transform: rotate(4deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat-leg-a,
+  .cat-leg-b,
+  .cat-walk-bob,
+  .cat-tail,
+  .cat-tail-sit {
+    animation: none;
+  }
+}
+
 /* Markdown body styles for blog posts (colors follow the theme via CSS vars
    set on the .markdown wrapper) */
 .markdown {
