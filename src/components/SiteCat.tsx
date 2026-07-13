@@ -4,6 +4,7 @@ import { useTheme } from "../context/ThemeContext";
 import { getThemeTokens } from "../lib/themeToken";
 import { mono } from "./BlogLayout";
 import { SOCIALS } from "../content/home";
+import ContactForm from "./ContactForm";
 
 /* A small cat that wanders the viewport, sits for a while, and strolls
    somewhere else. Hovering (or focusing, or clicking) makes it sit and opens
@@ -101,6 +102,8 @@ export default function SiteCat() {
   const [pose, setPose] = useState<"walk" | "sit">("sit");
   const [facing, setFacing] = useState<1 | -1>(1);
   const [bubble, setBubble] = useState(false);
+  // email opens the same get-in-touch modal as the homepage, not the mail app
+  const [contactOpen, setContactOpen] = useState(false);
   const hoverRef = useRef(false);
   const closeTimer = useRef<number | null>(null);
   const walkRef = useRef<HTMLDivElement>(null);
@@ -194,8 +197,8 @@ export default function SiteCat() {
   const links = [
     { label: "github", href: SOCIALS.github, icon: <GitHubIcon /> },
     { label: "linkedin", href: SOCIALS.linkedin, icon: <LinkedInIcon /> },
-    { label: "email", href: `mailto:${SOCIALS.email}`, icon: <Mail size={14} /> },
   ];
+  const rowCls = `flex items-center gap-2.5 px-3 py-1.5 text-xs ${subtext} ${cardHover} hover:text-emerald-500 transition-colors`;
 
   if (!desktop) return null;
 
@@ -237,14 +240,24 @@ export default function SiteCat() {
                       <a
                         key={l.label}
                         href={l.href}
-                        target={l.href.startsWith("mailto:") ? undefined : "_blank"}
+                        target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex items-center gap-2.5 px-3 py-1.5 text-xs ${subtext} ${cardHover} hover:text-emerald-500 transition-colors`}
+                        className={rowCls}
                       >
                         {l.icon}
                         {l.label}
                       </a>
                     ))}
+                    <button
+                      onClick={() => {
+                        setContactOpen(true);
+                        release();
+                      }}
+                      className={`w-full ${rowCls}`}
+                    >
+                      <Mail size={14} />
+                      email
+                    </button>
                     {/* bubble tail */}
                     <span
                       className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rotate-45 border-b border-r ${border} ${panelBg}`}
@@ -273,6 +286,7 @@ export default function SiteCat() {
           </div>
         </div>
       )}
+      <ContactForm open={contactOpen} onClose={() => setContactOpen(false)} email={SOCIALS.email} />
     </>
   );
 }
