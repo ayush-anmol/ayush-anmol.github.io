@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" font-family="Consolas, ui-monospace, monospace">
+  <rect width="800" height="340" rx="12" fill="#FAF6ED" stroke="#E7E5E4"/>
+  <text x="40" y="42" font-size="16" font-weight="700" fill="#1C1917">One pass, one bubble of state: minimum and its position</text>
+
+  <!-- array cells -->
+  <g fill="#FFFFFF" stroke="#57534E">
+    <rect x="90" y="90" width="56" height="44" rx="6"/>
+    <rect x="156" y="90" width="56" height="44" rx="6"/>
+    <rect x="222" y="90" width="56" height="44" rx="6"/>
+    <rect x="288" y="90" width="56" height="44" rx="6"/>
+    <rect x="354" y="90" width="56" height="44" rx="6"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="#1C1917" text-anchor="middle">
+    <text x="118" y="118">7</text>
+    <text x="184" y="118">3</text>
+    <text x="250" y="118">9</text>
+    <text x="316" y="118">2</text>
+    <text x="382" y="118">5</text>
+  </g>
+  <g font-size="10" fill="#78716C" text-anchor="middle">
+    <text x="118" y="152">i=1</text>
+    <text x="184" y="152">i=2</text>
+    <text x="250" y="152">i=3</text>
+    <text x="316" y="152">i=4</text>
+    <text x="382" y="152">i=5</text>
+  </g>
+
+  <!-- state after each step -->
+  <text x="80" y="205" font-size="12" text-anchor="end" fill="#57534E">min</text>
+  <g font-size="13" text-anchor="middle">
+    <text x="118" y="205" font-weight="700" fill="#047857">7</text>
+    <text x="184" y="205" font-weight="700" fill="#047857">3</text>
+    <text x="250" y="205" fill="#A8A29E">3</text>
+    <text x="316" y="205" font-weight="700" fill="#047857">2</text>
+    <text x="382" y="205" fill="#A8A29E">2</text>
+  </g>
+  <text x="80" y="235" font-size="12" text-anchor="end" fill="#57534E">pos</text>
+  <g font-size="13" text-anchor="middle">
+    <text x="118" y="235" font-weight="700" fill="#047857">1</text>
+    <text x="184" y="235" font-weight="700" fill="#047857">2</text>
+    <text x="250" y="235" fill="#A8A29E">2</text>
+    <text x="316" y="235" font-weight="700" fill="#047857">4</text>
+    <text x="382" y="235" fill="#A8A29E">4</text>
+  </g>
+  <text x="250" y="272" font-size="11" text-anchor="middle" fill="#57534E">bold = updated; both fields change together, inside the same if</text>
+
+  <!-- pseudocode box -->
+  <rect x="470" y="84" width="290" height="168" rx="8" fill="#FFFFFF" stroke="#E7E5E4"/>
+  <g font-size="13" fill="#1C1917">
+    <text x="490" y="110">min = +∞</text>
+    <text x="490" y="134">pos = −1</text>
+    <text x="490" y="158">for i = 1 … n:</text>
+    <text x="522" y="182">if arr[i] &lt; min:</text>
+    <text x="554" y="206">min = arr[i]</text>
+    <text x="554" y="230">pos = i</text>
+  </g>
+
+  <text x="400" y="315" font-size="11" text-anchor="middle" fill="#78716C">same skeleton: sum (add), max (&gt;), count occurrences (= target → count+1)</text>
+</svg>
